@@ -1,0 +1,41 @@
+html, body {
+    width:100%;
+    height:100%;
+}
+
+#description {
+
+}
+
+.text-overlay {
+    display:flex;
+    flex-flow:column wrap;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:2;
+}
+
+.img-grid img {
+    width:25%;
+    height:25%;
+    object-fit:cover;
+    image-rendering:optimizeSpeed;
+    filter: grayscale(100) opacity(.25);
+}
+
+.img-grid {
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:justify;
+    align-items:center;
+    width:100%;
+    height:100%;
+}
+
+#button-tray {
+    padding-top:100px;
+}
+

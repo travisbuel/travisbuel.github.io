@@ -1,0 +1,105 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    width:100%;
+    min-height:100vh;
+    background-color:black;
+    background-image:url(/img/background.png), linear-gradient(rgb(139, 28, 0), rgb(155, 27, 4), rgb(102, 0, 0));
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.matches-high{
+    font-size:2em;
+}
+.matches-low{
+    font-size:2em;
+}
+
+
+input[type=number]{
+    border-radius: 0;
+    outline:none;
+    background:none;
+    color:white;
+    width:100px;
+}
+
+input[type=number]:active,
+input[type=number]:empty,
+input[type=number]:invalid,
+input[type=number]:valid,
+input[type=number]:focus,
+input[type=number]::placeholder{
+    outline:none;
+    background:none;
+    color:white;
+}
+
+/* Hide Number Field Tickers in Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide Number Field Tickers in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=radio]{
+    position:absolute;
+    visibility:hidden;
+    display:none;
+}
+
+label {
+    display:inline;
+    cursor:pointer;
+}
+
+input[type=radio] + label {
+    background-color:rgba(0,0,0,0.0);
+    padding:6px 10px;
+    border:1px solid white; 
+    display:inline-flex;
+    margin:0;
+}
+
+input[type=radio]:checked + label {
+    background-color:white;
+    color:black;
+    display:inline-flex;
+
+}
+
+
+
+input[type=submit]{
+    border-radius: 0 5px 5px 0;
+}
+
+
+.progress-bar-valor{
+    background-color:rgba(0,0,0,0.5);
+    height:8px;
+    overflow:hidden;
+}
+
+.progress-bar-valor-percent{
+    background-color:white;
+    height:10px;
+}
+
+.form-control {
+    min-width: 0;
+    width: auto;
+    display: inline;
+    max-width: 140px;
+}

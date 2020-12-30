@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <body>
+    <div class="container text-white">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 align-middle">
+          <img class="img-fluid" src="img/header-text.png">
+        </div>
+      </div>
+      <div class="row mb-20">
+        <div class="col-lg-4 col-md-12 col-sm-12"">
+          <h2>How's this work?</h2>
+          <p>Test Type your current Valor in the field, select any active Valor boosts (2X during Iron Banner through
+            Thursday, 3X from Friday til Reset), and click Submit to see your Fewest Possible matches and Worst-Case
+            (highest number of matches) that you will need to hit a Valor Reset. Useful for time
+            management for farming Cores at Legend or Redrix quest.</p>
+
+          <p>Keep in mind, Crucible bounties contribute Valor to your rank as well, so depending on how often you're
+            completing those and going back for more (goblinning), this will take less time -- but I have no way to
+            calculate that.</p>
+
+          <h5>Enter your info here:</h5>
+          <div class="input-group inline">
+            <form name="calc1">
+              <input type="number" class="form-control rounded-left" aria-label="Valor Calculator" id="valor"
+                name="Valor" max="1999" maxlength="4" placeholder="Valor" width="60px" autocomplete="off" required>
+            </form>
+            <form name="calc2" data-toggle="radio">
+              <input type="radio" name="multiplier" id="1" autocomplete="off" value="10" checked><label for="1"><span
+                  class="">1X</span></label><input type="radio" name="multiplier" id="2" autocomplete="off"
+                value="20"><label for="2"><span class="">2X</span></label><input type="radio" name="multiplier" id="3"
+                autocomplete="off" value="30"><label for="3"><span class="">3X</span></label>
+            </form>
+            <input type="submit" class="btn btn-success btn-outline-light" onclick='check(); return false'></input>
+          </div>
+          <div class="pt-3" id="results1" style="display:none">
+            <p>You need <span id="difference" class="badge badge-success badge-pill"><span>? Valor</span></span> to
+              reset.<br>
+              This puts you <span id="percentage" class="badge badge-success badge-pill"><span>X percent</span></span>
+              of
+              the way there.</p>
+          </div>
+          <div class="valor-bar-section" id="valor-bar" style="display:none">
+            <div class="progress-bar-valor mb-5 rounded-pill shadow" id="calc4">
+              <div class="progress-bar-valor-percent" id="progress-bar-valor-percent" width="0%"></div>
+            </div>
+            <div class="valor-progress align-middle" id="valor-progress" style="display:none"></div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <script>
+          function check() {
+            document.getElementById('difference').innerHTML = Math.round(2000 - document.calc1.valor.value) + ' Valor';
+            document.getElementById('percentage').innerHTML = Math.round(document.calc1.valor.value / 20) + '%';
+            document.getElementById("progress-bar-valor-percent").style.width = Math.round(document.calc1.valor.value / 20) + '%';
+            document.getElementById('result-high').innerHTML = Math.round((2000 - document.calc1.valor.value) / (document.calc2.multiplier.value)) + ' Matches';
+            document.getElementById('result-low').innerHTML = Math.round((2000 - document.calc1.valor.value) / (document.calc2.multiplier.value) / 4) + ' Matches';
+            document.getElementById('legend-low').innerHTML = Math.round((1800 - document.calc1.valor.value) / (document.calc2.multiplier.value) / 4) + ' Matches';
+            document.getElementById('legend-high').innerHTML = Math.round((1800 - document.calc1.valor.value) / (document.calc2.multiplier.value)) + ' Matches';
+            document.getElementById('results1').style.display = "";
+            document.getElementById('results2').style.display = "";
+            document.getElementById('valor-progress').style.display = "";
+            document.getElementById('valor-bar').style.display = "";
+          }
+        </script>
+
+        <div class="col-lg-7 col-md-12 col-sm-12 pb-5" id="results2" style="display:none">
+
+          <div class="card-group">
+            <div class="card bg-success text-light text-center shadow inline">
+              <div class="card-header">
+                <h5 class="card-title">Optimistically...</h5>
+              </div>
+              <img class="card-img-top" src="/img/redrix.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text matches-low" id="result-low"></p>
+                <p class="card-text">This assumes you don't lose a single match and maintain a constant 5-win streak.
+                  Roll as a 6-stack
+                  of Stasis Hunters and you're good!</p>
+                
+
+
+
+
+              </div>
+              <div class="card-footer"><p class="card-text">Only care about hitting Legend for the Enhancement Cores? That'll be <span
+                class="card-text" id="legend-low"></span>.</p></div>
+            </div>
+            <div class="card bg-danger text-light text-center shadow inline">
+              <div class="card-header">
+                <h5 class="card-title">Worst-Case</h5>
+              </div>
+              <img class="card-img-top" src="/img/blueberry.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text matches-high" id="result-high"></p>
+                <p class="card-text">This assumes you lose literally every single match. Git gud or get patient at the
+                  very least, this
+                  could take a bit.</p>
+                
+
+              </div>
+              <div class="card-footer"><p class="card-text">Only care about hitting Legend for the Enhancement Cores? That'll be <span
+                class="card-text" id="legend-high"></span>.</p></div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>
