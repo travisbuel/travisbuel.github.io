@@ -103,3 +103,17 @@ input[type=submit]{
     display: inline;
     max-width: 140px;
 }
+
+.error {
+background:white;
+color:rgb(139, 28, 0);
+padding:20px 40px;
+border-radius:20px;
+}
+
+.error h1, .error h3 {
+    display:inline;
+}
+.error ol {
+    padding-top:10px;
+}

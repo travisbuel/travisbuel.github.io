@@ -38,8 +38,9 @@
                 value="20"><label for="2"><span class="">2X</span></label><input type="radio" name="multiplier" id="3"
                 autocomplete="off" value="30"><label for="3"><span class="">3X</span></label>
             </form>
-            <input type="submit" class="btn btn-success btn-outline-light" onclick='check(); return false'></input>
+            <input type="submit" class="btn btn-success btn-outline-light" id="submit" onclick='check(); return false'></input>
           </div>
+          
           <div class="pt-3" id="results1" style="display:none">
             <p>You need <span id="difference" class="badge badge-success badge-pill"><span>? Valor</span></span> to
               reset.<br>
@@ -61,26 +62,59 @@
 
 
 
-        <script>
+        <script type="text/javascript">
           function check() {
-            document.getElementById('difference').innerHTML = Math.round(2000 - document.calc1.valor.value) + ' Valor';
-            document.getElementById('percentage').innerHTML = Math.round(document.calc1.valor.value / 20) + '%';
-            document.getElementById("progress-bar-valor-percent").style.width = Math.round(document.calc1.valor.value / 20) + '%';
-            document.getElementById('result-high').innerHTML = Math.round((2000 - document.calc1.valor.value) / (document.calc2.multiplier.value)) + ' Matches';
-            document.getElementById('result-low').innerHTML = Math.round((2000 - document.calc1.valor.value) / (document.calc2.multiplier.value) / 4) + ' Matches';
-            document.getElementById('legend-low').innerHTML = Math.round((1800 - document.calc1.valor.value) / (document.calc2.multiplier.value) / 4) + ' Matches';
-            document.getElementById('legend-high').innerHTML = Math.round((1800 - document.calc1.valor.value) / (document.calc2.multiplier.value)) + ' Matches';
+
+            // Set variables
+            const valorMax = 2000;
+            const valorLegend = 1800;
+            var valorVal = parseInt(document.calc1.valor.value, 10);
+            var multiplier = parseInt (document.calc2.multiplier.value, 10);
+
+            // Check for errors
+
+
+            if (valorVal >= 2000 || typeof (valorVal) !== 'number' || Number.isNaN(valorVal)) {
+              document.getElementById('results2').style.display = "";
+              document.getElementById('error').style.display = "";
+              document.getElementById('greencard').style.display = "none";
+              document.getElementById('redcard').style.display = "none";
+              document.getElementById('results1').style.display = "none";
+            document.getElementById('valor-progress').style.display = "none";
+            document.getElementById('valor-bar').style.display = "none";
+
+            } else {
+              console.log('all good')
+            document.getElementById('difference').innerHTML = Math.round(valorMax - valorVal) + ' Valor';
+            document.getElementById('percentage').innerHTML = Math.round(valorVal / 20) + '%';
+            document.getElementById("progress-bar-valor-percent").style.width = Math.round(valorVal / 20) + '%';
+            document.getElementById('result-high').innerHTML = Math.round((valorMax - valorVal) / (multiplier)) + ' Matches';
+            document.getElementById('result-low').innerHTML = Math.round((valorMax - valorVal) / (multiplier) / 4) + ' Matches';
+            document.getElementById('legend-low').innerHTML = Math.round((valorLegend - valorVal) / (multiplier) / 4) + ' Matches';
+            document.getElementById('legend-high').innerHTML = Math.round((valorLegend - valorVal) / (multiplier)) + ' Matches';
             document.getElementById('results1').style.display = "";
             document.getElementById('results2').style.display = "";
             document.getElementById('valor-progress').style.display = "";
             document.getElementById('valor-bar').style.display = "";
+            document.getElementById('error').style.display = "none";
+            document.getElementById('greencard').style.display = "";
+              document.getElementById('redcard').style.display = "";
           }
+          }
+
         </script>
 
         <div class="col-lg-7 col-md-12 col-sm-12 pb-5" id="results2" style="display:none">
-
+          <div class="error" id="error" style="display:none">
+            <h1><strong>Breh.</strong></h1><h3>We got a problem.</h3>
+            <ol>
+              <li>Do you even play this game?</li>
+              <li>You gotta put a number in the number thingy, anything between 0 and 1999.</li>
+              <li>Also, no commas. Sorry if I <em>*forgot*</em> to mention that.</li>
+          </div>
+          
           <div class="card-group">
-            <div class="card bg-success text-light text-center shadow inline">
+            <div class="card bg-success text-light text-center shadow inline" id="greencard">
               <div class="card-header">
                 <h5 class="card-title">Optimistically...</h5>
               </div>
@@ -99,7 +133,7 @@
               <div class="card-footer"><p class="card-text">Only care about hitting Legend for the Enhancement Cores? That'll be <span
                 class="card-text" id="legend-low"></span>.</p></div>
             </div>
-            <div class="card bg-danger text-light text-center shadow inline">
+            <div class="card bg-danger text-light text-center shadow inline" id="redcard">
               <div class="card-header">
                 <h5 class="card-title">Worst-Case</h5>
               </div>
