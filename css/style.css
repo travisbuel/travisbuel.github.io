@@ -143,6 +143,38 @@ body {
 	}
 }
 
+@media only screen and (max-width: 600px) {
+	.header-image {
+	}
+
+	.header-image > img {
+		width: 90%;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		grid-template-columns: ;
+		grid-template-rows: ;
+		grid-auto-flow: ;
+		margin: 0;
+	}
+
+	.info {
+		grid-column-start: 1;
+		grid-row-start: 1;
+		line-height: 1.5rem;
+		padding-right: 0px;
+	}
+
+	.results {
+		grid-column-start: 1;
+		grid-row-start: 2;
+		line-height: 1.5rem;
+		padding-right: 0px;
+	}
+}
+
 .input-group,
 form {
 	display: inline-flex;
