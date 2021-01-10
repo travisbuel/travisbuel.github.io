@@ -1,119 +1,274 @@
-html {
-    scroll-behavior: smooth;
+html,
+body {
+	margin: auto 0;
 }
-
 
 body {
-    width:100%;
-    min-height:100vh;
-    background-color:black;
-    background-image:url(/img/background.png), linear-gradient(rgb(139, 28, 0), rgb(155, 27, 4), rgb(102, 0, 0));
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
+	background-color: rgb(102, 0, 0);
+	background-image: url(/img/background.png),
+		linear-gradient(rgb(139, 28, 0), rgb(155, 27, 4), rgb(102, 0, 0));
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: contain;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.matches-high{
-    font-size:2em;
-}
-.matches-low{
-    font-size:2em;
-}
-
-
-input[type=number]{
-    border-radius: 0;
-    outline:none;
-    background:none;
-    color:white;
-    width:100px;
+.header-image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: flex-end;
 }
 
-input[type=number]:active,
-input[type=number]:empty,
-input[type=number]:invalid,
-input[type=number]:valid,
-input[type=number]:focus,
-input[type=number]::placeholder{
-    outline:none;
-    background:none;
-    color:white;
+.header-image > img {
+	width: 80%;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 10% repeat(2, minmax(400px, 1fr)) 10%;
+	grid-template-rows: 1fr auto;
+	grid-auto-flow: row;
+	color: white;
+}
+
+.info {
+	grid-column-start: 2;
+	line-height: 1.5rem;
+	padding-right: 20px;
+}
+
+.results {
+	grid-column-start: 3;
+	line-height: 1.5rem;
+	padding-right: 20px;
+}
+
+.results-text {
+	background: white;
+	border: 1px solid white;
+	color: rgb(102, 0, 0);
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.results-wrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 60px;
+	background: rgb(34, 193, 195);
+	background: linear-gradient(
+		90deg,
+		rgba(34, 193, 195, 1) 0%,
+		rgba(253, 187, 45, 1) 100%
+	);
+	color: white;
+	border-radius: 10px;
+	border: 1px solid white;
+	overflow: hidden;
+}
+
+.low {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 10%;
+	font-size: 1.3em;
+	line-height: 1.2em;
+	z-index: 1;
+	transform: rotate(-90deg);
+}
+
+.avg {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5em;
+	line-height: 1em;
+	z-index: 2;
+	font-weight: bolder;
+}
+
+.high {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 10%;
+	font-size: 1.3em;
+	line-height: 1em;
+	z-index: 1;
+	transform: rotate(-90deg);
+}
+
+@media only screen and (max-width: 1020px) {
+	.header-image {
+	}
+
+	.header-image > img {
+		width: 90%;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		grid-auto-flow: column;
+		margin: 5%;
+	}
+
+	.info {
+		grid-column-start: 1;
+		grid-row-start: 1;
+		line-height: 1.5rem;
+		padding-right: 0px;
+	}
+
+	.results {
+		grid-column-start: 1;
+		grid-row-start: 2;
+		line-height: 1.5rem;
+		padding-right: 0px;
+	}
+}
+
+.input-group,
+form {
+	display: inline-flex;
+	flex-direction: row nowrap;
+	align-items: flex-start;
+	height: 37px;
+	width: fit-content;
+}
+
+/* STYLING FOR FORM FIELDS ONLY FROM HERE */
+
+input[type="number"] {
+	border-radius: 8px 0px 0px 8px;
+	padding: 6px 10px 6px 10px;
+	color: white;
+	margin: 0px;
+	border: 1px solid white;
+	font-size: 20px;
+	width: 150px;
+}
+
+input[type="number"]:active,
+input[type="number"]:empty,
+input[type="number"]:invalid,
+input[type="number"]:valid,
+input[type="number"]:focus,
+input[type="number"]::placeholder {
+	background: none;
+	color: white;
+	margin: 0;
 }
 
 /* Hide Number Field Tickers in Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
-/* Hide Number Field Tickers in Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+input[type="radio"] {
+	display: none;
+	margin: 0;
 }
 
-input[type=radio]{
-    position:absolute;
-    visibility:hidden;
-    display:none;
+input[type="radio"] + label {
+	border: 1px solid white;
+	margin: 0;
+	font-size: 20px;
+	padding: 6px 10px 5px 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	width: 33%;
+	text-align: center;
 }
 
-label {
-    display:inline;
-    cursor:pointer;
+input[type="radio"]:hover + label {
+	border: 1px solid white;
+	background-color: rgb(139, 28, 0);
+	margin: 0;
+	font-size: 20px;
+	padding: 6px 10px 5px 10px;
+	transition: all 0.3s ease;
+	width: 33%;
+	text-align: center;
 }
 
-input[type=radio] + label {
-    background-color:rgba(0,0,0,0.0);
-    padding:6px 10px;
-    border:1px solid white; 
-    display:inline-flex;
-    margin:0;
+input[type="radio"]:checked + label {
+	background-color: white;
+	color: rgb(146, 0, 0);
+	font-size: 20px;
+	padding: 6px 10px 5px 10px;
+	border: 1px solid white;
+	cursor: default;
+	transition: all 0.3s ease;
+	margin: 0;
+	width: 33%;
+	text-align: center;
 }
 
-input[type=radio]:checked + label {
-    background-color:white;
-    color:black;
-    display:inline-flex;
-
+input[type="submit"] {
+	border-radius: 0 8px 8px 0;
+	background-color: rgb(25, 114, 37);
+	color: white;
+	border: 1px solid white;
+	font-size: 20px;
+	padding: 6px 10px 6px 10px;
+	cursor: pointer;
+	margin: 0;
+	transition: all 0.3s ease;
 }
 
-
-
-input[type=submit]{
-    border-radius: 0 5px 5px 0;
+input[type="submit"]:hover {
+	background-color: rgb(174, 255, 185);
+	color: rgb(25, 114, 37);
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
-
-.progress-bar-valor{
-    background-color:rgba(0,0,0,0.5);
-    height:8px;
-    overflow:hidden;
+.valor-bar-section {
+	width: 100%;
 }
 
-.progress-bar-valor-percent{
-    background-color:white;
-    height:10px;
+.progress-bar-valor {
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+	height: 8px;
+	overflow: hidden;
+	border-radius: 4px;
 }
 
-.form-control {
-    min-width: 0;
-    width: auto;
-    display: inline;
-    max-width: 140px;
+.progress-bar-valor-percent {
+	background-color: white;
+	border-radius: 4px;
+	height: 8px;
 }
 
 .error {
-background:white;
-color:rgb(139, 28, 0);
-padding:20px 40px;
-border-radius:20px;
+	background: white;
+	color: rgb(139, 28, 0);
+	padding: 20px 40px;
+	border-radius: 20px;
 }
 
-.error h1, .error h3 {
-    display:inline;
+.error h1,
+.error h3 {
+	display: inline;
 }
 .error ol {
-    padding-top:10px;
+	padding-top: 10px;
 }
