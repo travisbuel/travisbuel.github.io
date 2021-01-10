@@ -194,7 +194,8 @@ input[type="number"] {
 	margin: 0px;
 	border: 1px solid white;
 	font-size: 20px;
-	width: 150px;
+	height: 23px;
+	width: 70px;
 }
 
 input[type="number"]:active,
@@ -206,6 +207,7 @@ input[type="number"]::placeholder {
 	background: none;
 	color: white;
 	margin: 0;
+	height: 23px;
 }
 
 /* Hide Number Field Tickers in Chrome, Safari, Edge, Opera */
@@ -229,6 +231,7 @@ input[type="radio"] + label {
 	transition: all 0.3s ease;
 	width: 33%;
 	text-align: center;
+	height: 24px;
 }
 
 input[type="radio"]:hover + label {
@@ -240,6 +243,7 @@ input[type="radio"]:hover + label {
 	transition: all 0.3s ease;
 	width: 33%;
 	text-align: center;
+	height: 24px;
 }
 
 input[type="radio"]:checked + label {
@@ -253,6 +257,7 @@ input[type="radio"]:checked + label {
 	margin: 0;
 	width: 33%;
 	text-align: center;
+	height: 24px;
 }
 
 input[type="submit"] {
@@ -265,6 +270,7 @@ input[type="submit"] {
 	cursor: pointer;
 	margin: 0;
 	transition: all 0.3s ease;
+	height: 37px;
 }
 
 input[type="submit"]:hover {
@@ -272,6 +278,7 @@ input[type="submit"]:hover {
 	color: rgb(25, 114, 37);
 	cursor: pointer;
 	transition: all 0.3s ease;
+	height: 37px;
 }
 
 .valor-bar-section {
