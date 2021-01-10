@@ -1,3 +1,15 @@
+:root {
+	--select-border: #777;
+	--select-focus: white;
+	--select-arrow: var(--select-border);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
 	margin: auto 0;
@@ -9,7 +21,7 @@ body {
 		linear-gradient(rgb(139, 28, 0), rgb(155, 27, 4), rgb(102, 0, 0));
 	background-position: top;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 100vw;
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -27,7 +39,7 @@ body {
 
 .container {
 	display: grid;
-	grid-template-columns: 10% repeat(2, minmax(400px, 1fr)) 10%;
+	grid-template-columns: 10% repeat(2, minmax(300px, 1fr)) 10%;
 	grid-template-rows: 1fr auto;
 	grid-auto-flow: row;
 	color: white;
@@ -42,7 +54,8 @@ body {
 .results {
 	grid-column-start: 3;
 	line-height: 1.5rem;
-	padding-right: 20px;
+	border-left:1px solid white;
+	padding-left:5%;
 }
 
 .results-text {
@@ -67,8 +80,9 @@ body {
 	background: rgb(34, 193, 195);
 	background: linear-gradient(
 		90deg,
-		rgba(34, 193, 195, 1) 0%,
-		rgba(253, 187, 45, 1) 100%
+		rgb(14, 168, 91) 0%,
+		rgb(187, 175, 7) 50%,
+		rgb(156, 3, 3) 100%
 	);
 	color: white;
 	border-radius: 10px;
@@ -80,12 +94,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 	width: 10%;
 	font-size: 1.3em;
 	line-height: 1.2em;
 	z-index: 1;
-	transform: rotate(-90deg);
 }
 
 .avg {
@@ -104,46 +117,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	width: 10%;
 	font-size: 1.3em;
 	line-height: 1em;
 	z-index: 1;
-	transform: rotate(-90deg);
 }
 
-@media only screen and (max-width: 1020px) {
-	.header-image {
-	}
-
-	.header-image > img {
-		width: 90%;
-	}
-
-	.container {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto;
-		grid-auto-flow: column;
-		margin: 5%;
-	}
-
-	.info {
-		grid-column-start: 1;
-		grid-row-start: 1;
-		line-height: 1.5rem;
-		padding-right: 0px;
-	}
-
-	.results {
-		grid-column-start: 1;
-		grid-row-start: 2;
-		line-height: 1.5rem;
-		padding-right: 0px;
-	}
-}
-
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 900px) {
 	body {
 		margin: 5%;
 	}
@@ -166,119 +147,19 @@ body {
 		grid-row-start: 1;
 		line-height: 1.5rem;
 		padding-right: 0px;
+		padding-bottom:20px;
 	}
 
 	.results {
 		grid-column-start: 1;
 		grid-row-start: 2;
 		line-height: 1.5rem;
-		padding-right: 0px;
+		padding-left: 0px;
+		border-left:0px;
+		padding-top:20px;
+		border-top:1px solid white;
 	}
-}
 
-.input-group,
-form {
-	display: inline-flex;
-	flex-direction: row nowrap;
-	align-items: flex-start;
-	height: 37px;
-	width: fit-content;
-}
-
-/* STYLING FOR FORM FIELDS ONLY FROM HERE */
-
-input[type="number"] {
-	border-radius: 8px 0px 0px 8px;
-	padding: 6px 10px 6px 10px;
-	color: white;
-	margin: 0px;
-	border: 1px solid white;
-	font-size: 20px;
-	height: 23px;
-	width: 70px;
-}
-
-input[type="number"]:active,
-input[type="number"]:empty,
-input[type="number"]:invalid,
-input[type="number"]:valid,
-input[type="number"]:focus,
-input[type="number"]::placeholder {
-	background: none;
-	color: white;
-	margin: 0;
-	height: 23px;
-}
-
-/* Hide Number Field Tickers in Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type="radio"] {
-	display: none;
-	margin: 0;
-}
-
-input[type="radio"] + label {
-	border: 1px solid white;
-	margin: 0;
-	font-size: 20px;
-	padding: 6px 10px 5px 10px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	width: 33%;
-	text-align: center;
-	height: 24px;
-}
-
-input[type="radio"]:hover + label {
-	border: 1px solid white;
-	background-color: rgb(139, 28, 0);
-	margin: 0;
-	font-size: 20px;
-	padding: 6px 10px 5px 10px;
-	transition: all 0.3s ease;
-	width: 33%;
-	text-align: center;
-	height: 24px;
-}
-
-input[type="radio"]:checked + label {
-	background-color: white;
-	color: rgb(146, 0, 0);
-	font-size: 20px;
-	padding: 6px 10px 5px 10px;
-	border: 1px solid white;
-	cursor: default;
-	transition: all 0.3s ease;
-	margin: 0;
-	width: 33%;
-	text-align: center;
-	height: 24px;
-}
-
-input[type="submit"] {
-	border-radius: 0 8px 8px 0;
-	background-color: rgb(25, 114, 37);
-	color: white;
-	border: 1px solid white;
-	font-size: 20px;
-	padding: 6px 10px 6px 10px;
-	cursor: pointer;
-	margin: 0;
-	transition: all 0.3s ease;
-	height: 37px;
-}
-
-input[type="submit"]:hover {
-	background-color: rgb(174, 255, 185);
-	color: rgb(25, 114, 37);
-	cursor: pointer;
-	transition: all 0.3s ease;
-	height: 37px;
 }
 
 .valor-bar-section {
@@ -299,16 +180,138 @@ input[type="submit"]:hover {
 }
 
 .error {
-	background: white;
-	color: rgb(139, 28, 0);
-	padding: 20px 40px;
-	border-radius: 20px;
+	background: rgb(0, 2, 139);
+	padding: 5%;
+	margin: 2%;
+	grid-column-start: 3;
+	line-height: 1.5rem;
+	padding-right: 20px;
+	font-family: monospace;
+	color: white;
 }
 
-.error h1,
-.error h3 {
-	display: inline;
+.form-wrapper {
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
 }
-.error ol {
-	padding-top: 10px;
+
+
+button,
+input,
+select {
+	box-sizing: border-box;
+	font-size: 1.3em;
+	height: 40px;
+	margin: 0 0 0 0;
+	padding: 5px 10px 5px 10px;
+	outline: none;
+	color: white;
+	border: 1px solid white;
+	border-radius:0px;
+	background: rgba(0, 0, 0, 0);
+	position: relative;
+	top: 0px;
+	appearance: none;
+	-webkit-appearance: none;
 }
+
+
+.valor-input {
+	border-radius: 5px 0px 0px 5px;
+	outline: none;
+	color: white;
+	width: 8ch;
+}
+
+.valor-input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: rgb(255, 255, 255);
+	opacity: 1; /* Firefox */
+}
+
+.valor-input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgb(255, 255, 255);
+}
+
+.valor-input::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: rgb(255, 255, 255);
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+input:focus:-moz-placeholder {
+	color: transparent;
+} /* Firefox 18- */
+input:focus::-moz-placeholder {
+	color: transparent;
+} /* Firefox 19+ */
+input:focus:-ms-input-placeholder {
+	color: transparent;
+} /* oldIE ;) */
+
+.valor-input:active,
+.valor-input:hover,
+.valor-input:focus {
+	-webkit-box-shadow: 0px 0px 5px 1px #ffffff;
+	box-shadow: 0px 0px 5px 1px #ffffff;
+}
+
+
+
+
+
+.select {
+	display: grid;
+align-items: center;
+}
+
+select {
+	width:200px;
+	
+}
+
+select:active,
+select:hover,
+select:focus {
+	-webkit-box-shadow: 0px 0px 5px 1px #ffffff;
+	box-shadow: 0px 0px 5px 1px #ffffff;
+}
+
+.select::after {
+	content: "";
+	width: 0.8em;
+	height: 0.5em;
+	background-color: white;
+	clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+	position:relative;
+	top:-24px;
+	left:178px;
+}
+
+select,
+.select:after {
+	
+}
+
+
+
+.submit {
+	border-radius: 0px 5px 5px 0px;
+	overflow: hidden;
+	cursor: pointer;
+	background-color:lightgray;
+	color:rgb(102, 0, 0);
+}
+
+.submit:active,
+.submit:hover,
+.submit:focus {
+	-webkit-box-shadow: 0px 0px 5px 1px #ffffff;
+	box-shadow: 0px 0px 5px 1px #ffffff;
+	background-color:white;

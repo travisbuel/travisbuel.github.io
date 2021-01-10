@@ -1,93 +1,134 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" href="css/style.css" />
 
-    <head>
-        <link rel="stylesheet" href="css/style.css">
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+	</head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
+	<body>
+		<div class="header-image">
+			<img class="img-fluid" src="img/header-text.png" />
+		</div>
 
-    <body>
+		<div class="container">
+			<div class="info">
+				<h1>How's this work?</h1>
+				<p>
+					Type your current Valor in the field, select any active Valor boosts,
+					and Submit. You'll get multiple stats about your progress toward your
+					next Valor reset, including an estimation for how many matches you
+					will need as well as raw min/max matches.
+				</p>
+				<p>
+					Keep in mind, Crucible bounties contribute Valor to your rank as well,
+					so depending on how often you're completing those and re-upping, this
+					will take less time -- but I have no way to calculate that.
+				</p>
+				<h3>Enter your info here:</h3>
 
-        <div class="header-image">
-            <img class="img-fluid" src="img/header-text.png">
-        </div>
+				<form name="calc1" class="form-wrapper">
+					<input
+						type="text"
+						aria-label="Valor Calculator"
+						id="valor"
+						name="Valor"
+						min="0"
+						max="1999"
+						maxlength="4"
+						width="60px"
+						autocomplete="off"
+						placeholder="####"
+						class="valor-input"
+						required
+					/>
+					<div class="select">
+						<select id="multiplier" name="multiplier">
+							<option name="No Valor Multiplier" value="10" selected>
+								No Multiplier
+							</option>
+							<option name="Double Valor" value="20">Double Valor</option>
+							<option name="Triple Valor" value="30">Triple Valor</option>
+						</select>
+					</div>
+					<button
+						type="submit"
+						id="submit"
+						class="submit"
+						onclick="check(); return false"
+					>
+						Submit
+					</button>
+				</form>
+			</div>
 
-        <div class="container">
+			<div class="error" id="error" style="display: none">
+				<h1><strong>Breh.</strong></h1>
+				<h3>
+					this-site.exe has encountered a problem and needs to close because you
+					fucked something up.
+				</h3>
+				<ol>
+					<li>Do you even play this game?</li>
+					<li>
+						You gotta put a number in the number thingy, anything between 0 and
+						1999.
+					</li>
+					<li>Also, no commas.</li>
+				</ol>
+			</div>
 
-            <div class="info">
-                <h1>How's this work?</h1>
-                <p>Type your current Valor in the field, select any active Valor boosts (2X during Iron Banner through
-                    Thursday, 3X from Friday til Reset), and click Submit to see your Fewest Possible matches and
-                    Worst-Case highest number of matches) that you will need to hit a Valor Reset. Useful for time
-                    management for farming Cores at Legend or Redrix quest.</p>
-                <p>Keep in mind, Crucible bounties contribute Valor to your rank as well, so depending on how often
-                    you're completing those and going back for more (goblinning), this will take less time -- but I have
-                    no way to calculate that.</p>
-                <h2>Enter your info here:</h2>
-                <div class="input-group inline-block">
-                    <form name="calc1">
-                        <input type="number" aria-label="Valor Calculator" id="valor"
-                            name="Valor" max="1999" maxlength="4" placeholder="Valor" width="60px" autocomplete="off"
-                            required>
-                    </form>
-                  <form name="calc2" data-toggle="radio">
-                        <input type="radio" name="multiplier" id="1" autocomplete="off" value="10" checked>
-                        <label for="1">1X</label>
-                        <input type="radio" name="multiplier" id="2" autocomplete="off" value="20">
-                        <label for="2">2X</label>
-                        <input type="radio" name="multiplier" id="3" autocomplete="off" value="30">
-                        <label for="3">3X</label>
-                    </form>
-                    <input type="submit" id="submit" onclick='check(); return false'></input>
-                </div>
-            </div>
+			<div class="results" id="results" style="display: none">
+				<h1>The Results...</h1>
 
+				<p>
+					You need <span id="difference"></span> to reset.<br />
+					This puts you <span id="percentage"></span> of the way there.
+				</p>
+				<div class="valor-bar-section" id="valor-bar">
+					<div class="progress-bar-valor" id="calc4">
+						<div
+							class="progress-bar-valor-percent"
+							id="progress-bar-valor-percent"
+							width="0%"
+						></div>
+					</div>
+					<div class="valor-progress" id="valor-progress"></div>
+				</div>
 
+				<h3>Quick Maths</h3>
 
+				<p class="card-text">
+					To hit a Valor reset, you still need something like...
+				</p>
+				<div class="results-wrapper">
+					<div class="low">
+						<p><span id="result-low"></span></p>
+					</div>
+					<div class="avg">
+						<p><span id="result-average"></span> MATCHES</p>
+					</div>
+					<div class="high">
+						<p><span id="result-high"></span></p>
+					</div>
+				</div>
+				<p class="card-text">
+					On the low end, this assumes you win every single match to maintain a
+					constant 5-win streak. On the high, you lose literally every single
+					match you play. The average assumes a 50% W/L ratio.
+				</p>
+				<p class="card-text">
+					Only care about hitting Legend for the Enhancement Cores? Expect
+					<span id="legend-low"></span> to
+					<span id="legend-high"></span> matches, with
+					<span id="legend-average"></span> matches as your average.
+				</p>
+			</div>
+		</div>
 
-
-            <div class="error" id="error" style="display:none">
-                <h1><strong>Breh.</strong></h1>
-                <h3>We got a problem.</h3>
-                <ol>
-                    <li>Do you even play this game?</li>
-                    <li>You gotta put a number in the number thingy, anything between 0 and 1999.</li>
-                    <li>Also, no commas. Sorry if I <em>*forgot*</em> to mention that.</li>
-            </div>
-
-
-
-
-
-            <div class="results" id="results" style="display:none">
-                <h1>The Results...</h1>
-
-                <p>You need <span id="difference"></span> to reset.<br>
-                    This puts you <span id="percentage"></span> of the way there.</p>
-                    <div class="valor-bar-section" id="valor-bar">
-                        <div class="progress-bar-valor" id="calc4">
-                            <div class="progress-bar-valor-percent" id="progress-bar-valor-percent" width="0%"></div>
-                        </div>
-                        <div class="valor-progress" id="valor-progress"></div>
-                    </div>
-            
-
-<h2>Quick Maths</h2>
-
-<p class="card-text">To hit a Valor reset, you still need somewhere in the neighborhood of...</p>
-<div class="results-wrapper">
-    <div class="low"><p><span id="result-low"></span></p></div>
-    <div class="avg"><p><span id="result-average"></span> MATCHES</p></div>
-    <div class="high"><p><span id="result-high"></span></p></div>
-</div>
-<p class="card-text">On the low end, this assumes you win every single match to maintain a constant 5-win streak. On the high, you lose literally every single match you play. The average assumes a 50% W/L ratio.</p>
-<p class="card-text">Only care about hitting Legend for the Enhancement Cores? Expect <span id="legend-low"></span> to <span id="legend-high"></span> matches, with <span id="legend-average"></span> matches as your average.</p>
-</div>
-
-</div>
-
-        <script type="text/JavaScript" src="script.js"></script>
-    </body>
-
+		<script type="text/JavaScript" src="script.js"></script>
+	</body>
 </html>

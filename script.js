@@ -3,7 +3,7 @@ function check() {
 	const valorMax = 2000;
 	const valorLegend = 1800;
 	var valorVal = parseInt(document.calc1.valor.value, 10);
-	var multiplier = parseInt(document.calc2.multiplier.value, 10);
+	var multiplier = parseInt(document.calc1.multiplier.value, 10);
 
 	// Check for errors
 
