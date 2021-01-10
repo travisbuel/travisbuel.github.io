@@ -223,7 +223,7 @@ select {
 	border-radius: 5px 0px 0px 5px;
 	outline: none;
 	color: white;
-	width: 8ch;
+	width: 6ch;
 }
 
 .valor-input::placeholder {
@@ -272,8 +272,8 @@ align-items: center;
 }
 
 select {
-	width:200px;
-	
+	width:180px;
+	cursor:pointer;
 }
 
 select:active,
@@ -291,7 +291,7 @@ select:focus {
 	clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 	position:relative;
 	top:-24px;
-	left:178px;
+	left:158px;
 }
 
 select,
