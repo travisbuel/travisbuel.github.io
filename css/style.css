@@ -424,11 +424,6 @@ input:checked + .slider:before {
 	}
 
 	footer {
-		padding: 0px 3% 0px 3%;
-		font-size: 0.9em;
-	}
-
-	.legal {
-		font-size: 0.8em;
+		padding: 0px 5% 0px 5%;
 	}
 }
