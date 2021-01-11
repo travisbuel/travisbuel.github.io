@@ -25,9 +25,9 @@ body {
 	background-image: url(/img/background.png);
 	background-position: top;
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100vw;
 	display: grid;
-	height: 100%;
+	margin-bottom: 100px;
 }
 
 .main-theme {
@@ -150,6 +150,39 @@ body {
 	line-height: 1em;
 	z-index: 1;
 }
+/* 
+@media only screen and (max-width: 900px) {
+	body {
+		margin: 5%;
+	}
+
+	.header-image > img {
+		width: 100%;
+	}
+
+	.container {
+		grid-template-rows: 2 span 1;
+		margin: 0;
+	}
+
+	.info {
+		grid-column-start: 1;
+		grid-row-start: 1;
+		line-height: 1.5rem;
+		padding-right: 0px;
+	}
+
+	.results {
+		grid-column-start: 1;
+		grid-row-start: 2;
+		line-height: 1.5rem;
+		padding-left: 0px;
+		border-left:0px;
+		padding-top:20px;
+		border-top:1px solid white;
+	}
+
+} */
 
 .valor-bar-section {
 	width: 100%;
@@ -304,15 +337,13 @@ footer {
 	align-items: center;
 	background-color: black;
 	color: #333;
-	margin: 100px 0 0 0;
-	width: 100%;
-	padding: 0px 10% 0px 10%;
-	height: 100px;
+	padding: 20px 40px 20px 40px;
 }
 
 .theme-label {
 	display: flex;
 	align-self: center;
+	padding-left: 10px;
 }
 
 /* The switch - the box around the slider */
@@ -390,40 +421,4 @@ input:checked + .slider:before {
 	height: 34px;
 	border-radius: 34px;
 	text-decoration: none;
-}
-
-@media only screen and (max-width: 900px) {
-	#body-wrapper {
-	}
-
-	.header-image > img {
-		width: 90%;
-	}
-
-	.container {
-		display: grid;
-		grid-template-columns: 5% 1fr 5%;
-		grid-template-rows: 50% 50%;
-		grid-auto-flow: row;
-		color: white;
-	}
-
-	.info {
-		display: subgrid;
-		grid-column-start: 2;
-		grid-column-end: 3;
-		line-height: 1.5rem;
-		padding-right: 0px;
-	}
-
-	.results {
-		grid-column-start: 2;
-		line-height: 1.5rem;
-		border-left: 0px;
-		padding-left: 0%;
-	}
-
-	footer {
-		padding: 0px 5% 0px 5%;
-	}
 }
