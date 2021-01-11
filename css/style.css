@@ -303,7 +303,7 @@ footer {
 	justify-content: space-between;
 	align-items: center;
 	background-color: black;
-	color: #333;
+	color: #444;
 	margin: 100px 0 0 0;
 	width: 100%;
 	padding: 0px 10% 0px 10%;
@@ -425,5 +425,6 @@ input:checked + .slider:before {
 
 	footer {
 		padding: 0px 5% 0px 5%;
+		font-size: 0.9em;
 	}
 }
