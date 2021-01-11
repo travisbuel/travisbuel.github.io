@@ -425,7 +425,7 @@ input:checked + .slider:before {
 
 	.error {
 		background: rgb(0, 2, 139);
-		margin: 0%;
+		margin: 50% 0px 0px 0px;
 		grid-column-start: 2;
 		line-height: 1.5rem;
 		font-family: monospace;
@@ -435,7 +435,7 @@ input:checked + .slider:before {
 		top: 0%;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: auto;
 	}
 	footer {
 		padding: 0px 5% 0px 5%;
