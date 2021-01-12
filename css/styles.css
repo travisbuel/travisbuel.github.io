@@ -159,13 +159,13 @@ em {
 	letter-spacing: 0.5rem;
 	color: var(--title1);
 	text-align: center;
-  margin-bottom: .75em ;	
+  margin-bottom: .5em ;	
 }
 
 .main-title-2 {
 	font-weight: bold;
 	font-style: normal;
-	font-size: 4em;
+	font-size: 3em;
 	line-height:.9em;
 	text-transform: uppercase;
 	color: var(--title2);
