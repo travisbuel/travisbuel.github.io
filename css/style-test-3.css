@@ -150,39 +150,6 @@ body {
 	line-height: 1em;
 	z-index: 1;
 }
-/* 
-@media only screen and (max-width: 900px) {
-	body {
-		margin: 5%;
-	}
-
-	.header-image > img {
-		width: 100%;
-	}
-
-	.container {
-		grid-template-rows: 2 span 1;
-		margin: 0;
-	}
-
-	.info {
-		grid-column-start: 1;
-		grid-row-start: 1;
-		line-height: 1.5rem;
-		padding-right: 0px;
-	}
-
-	.results {
-		grid-column-start: 1;
-		grid-row-start: 2;
-		line-height: 1.5rem;
-		padding-left: 0px;
-		border-left:0px;
-		padding-top:20px;
-		border-top:1px solid white;
-	}
-
-} */
 
 .valor-bar-section {
 	width: 100%;
