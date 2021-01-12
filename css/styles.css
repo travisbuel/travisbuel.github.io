@@ -252,12 +252,16 @@ em {
 	align-content: center;
 	justify-content: center;
 	background: rgb(0, 2, 139);
-	padding: 5%;
+	padding: 7%;
 	line-height: 1.5rem;
 	font-family: "Lucida Console", monospace;
 	color: white;
 	list-style-position: inside;
 	text-align: left;
+}
+
+#error h3 {
+    color:white;
 }
 
 #error h1 {
