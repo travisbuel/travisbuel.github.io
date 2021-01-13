@@ -28,11 +28,7 @@ html {
 }
 
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+
 
 body {
 	font-family: "Destiny", Helvetica, Arial, sans-serif;
@@ -99,16 +95,16 @@ em {
 	display: grid;
 	color: var(--primary-color);
 	text-align:left;
-	padding:5%;
+	padding:0px 5% 100px 5%;
 	gap:2%;
 }
 
 @media (min-width: 100px) {
 	.container {
 		grid-template:
-			"header" minmax(400px,auto)
-			"info" 1fr
-			"results" 1fr
+			"header" 400px
+			"info" 100px
+			"results" auto
 			/ 100%;
 			text-align:center;
 	}
@@ -118,10 +114,10 @@ em {
 	
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
 	.container {
 		grid-template:
-			"header header" minmax(400px,auto)
+			"header header" 400px
 			"info results" 1fr
 			/ 360px auto;
 			text-align:left;
@@ -136,7 +132,7 @@ em {
 @media (min-width: 1100px) {
 	.container {
 		grid-template:
-			"header header" minmax(400px,auto)
+			"header header" 400px
 			"info results" 1fr
 			/ 360px auto;
 			text-align:left;
