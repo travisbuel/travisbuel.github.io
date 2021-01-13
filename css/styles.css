@@ -20,8 +20,6 @@
 	--title2: #fff;
 }
 
-[toggleVis="visible"]
-	--
 
 html {
 	height:100%;
@@ -101,7 +99,7 @@ em {
 	display: grid;
 	color: var(--primary-color);
 	text-align:left;
-	padding:10%;
+	padding:5%;
 	gap:2%;
 }
 
