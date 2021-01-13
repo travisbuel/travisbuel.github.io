@@ -81,3 +81,12 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener("change", switchTheme, false);
+
+function halpToggle() {
+	var halpBtn = document.getElementById("halp");
+	if (halpBtn.checked == true) {
+		document.getElementById("halptext").style.display = "";
+	} else {
+		document.getElementById("halptext").style.display = "none";
+	}
+}

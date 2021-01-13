@@ -25,13 +25,81 @@ select {
 	-webkit-appearance: none;
 }
 
-.valor-input {
+.halp-btn input[type="checkbox"] {
+	display: none;
+}
+
+.halp-btn i {
+	font-size: 1.3em;
+}
+
+.halp-btn input[type="checkbox"] + label {
 	border-radius: 5px 0px 0px 5px;
+	cursor: pointer;
+
+	background-color: var(--bg-color);
+	color: var(--primary-color);
+	border: 2px solid var(--primary-color);
+
+	border-right: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.2s ease;
+}
+
+.halp-btn input[type="checkbox"]:hover + label,
+.halp-btn input[type="checkbox"]:checked + label {
+	border-radius: 5px 0px 0px 5px;
+	cursor: pointer;
+
+	background-color: var(--primary-color);
+	color: var(--bg-color);
+	border: 2px solid var(--primary-color);
+
+	border-right: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	-webkit-box-shadow: 0px 0px 5px 1px var(--primary-color);
+	box-shadow: 0px 0px 5px 1px var(--primary-color);
+	z-index: 2;
+	transform: scale(1.01);
+	transition: 0.2s ease;
+}
+
+#halptext {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-color);
+	color: var(--bg-color);
+	padding: 40px;
+	transition: 1s ease opacity;
+}
+
+#halptext h1,
+#halptext h2,
+#halptext h3 {
+	color: var(--bg-color);
+}
+
+.valor-input {
+	border-radius: 0px 0px 0px 0px;
 	outline: none;
 	color: var(--primary-color);
 	min-width: 6ch;
 	width: 100%;
 	border-right: 0px;
+	transition: 0.2s ease;
 }
 
 .valor-input::placeholder {
@@ -77,11 +145,13 @@ input:focus:-ms-input-placeholder {
 .select {
 	display: grid;
 	align-items: center;
+	transition: 0.2s ease;
 }
 
 select {
 	width: 180px;
 	cursor: pointer;
+	transition: 0.2s ease;
 }
 
 select:active,
@@ -103,6 +173,7 @@ select:focus {
 	position: relative;
 	top: -24px;
 	left: 158px;
+	transition: 0.2s ease;
 }
 
 .submit {
@@ -115,6 +186,7 @@ select:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: 0.2s ease;
 }
 
 .submit:active,

@@ -20,6 +20,16 @@
 	--title2: #fff;
 }
 
+[toggleVis="visible"]
+	--
+
+html {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -35,8 +45,10 @@ body {
 	background-repeat: no-repeat;
 	background-size: contain;
 	color: var(--primary-color);
-	display: grid;
-	grid-template: 1px auto 150px / 1fr 90% 1fr;
+	display: flex;
+	flex-direction:column;
+	align-items:space-between;
+	justify-items:center;
 }
 
 h1 {
@@ -44,9 +56,9 @@ h1 {
 	font-style: normal;
 	text-transform: uppercase;
 	display: block;
-	margin-bottom: 20px;
 	line-height: 0.9em;
 	color: var(--highlight);
+	margin-bottom: .7em ;
 }
 
 h2 {
@@ -56,8 +68,9 @@ h2 {
 	text-transform: uppercase;
 	letter-spacing: 0.3rem;
 	display: block;
-	margin-bottom: 10px;
 	color: var(--highlight);
+	margin-top: 1em ;
+	margin-bottom: 1em ;
 }
 
 h3 {
@@ -67,14 +80,15 @@ h3 {
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	display: block;
-	padding: 10px 0px 20px 0px;
 	color: var(--highlight);
+	margin-top: 1em ;
+	margin-bottom: 1em ;
 }
 
 p {
 	line-height: 1.3em;
 	margin-top: 1em ;
-  margin-bottom: 1em ;
+	margin-bottom: 1em ;
 }
 
 em {
@@ -84,21 +98,18 @@ em {
 }
 
 .container {
-	grid-column: 2 / span 1;
-	grid-row: 2 / span 1;
-	width: 100%;
-	height: 100%;
 	display: grid;
 	color: var(--primary-color);
-	gap: 5%;
 	text-align:left;
+	padding:10%;
+	gap:2%;
 }
 
 @media (min-width: 100px) {
 	.container {
 		grid-template:
-			"header" 400px
-			"info" auto
+			"header" minmax(400px,auto)
+			"info" 1fr
 			"results" 1fr
 			/ 100%;
 			text-align:center;
@@ -112,8 +123,8 @@ em {
 @media (min-width: 900px) {
 	.container {
 		grid-template:
-			"header header" 400px
-			"info results" auto
+			"header header" minmax(400px,auto)
+			"info results" 1fr
 			/ 360px auto;
 			text-align:left;
 	}
@@ -127,8 +138,8 @@ em {
 @media (min-width: 1100px) {
 	.container {
 		grid-template:
-			"header header" 400px
-			"info results" auto
+			"header header" minmax(400px,auto)
+			"info results" 1fr
 			/ 360px auto;
 			text-align:left;
 	}
@@ -159,7 +170,7 @@ em {
 	letter-spacing: 0.5rem;
 	color: var(--title1);
 	text-align: center;
-  margin-bottom: .5em ;	
+	margin-bottom: .5em ;	
 }
 
 .main-title-2 {
