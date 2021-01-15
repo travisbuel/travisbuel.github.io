@@ -22,7 +22,7 @@ body {
 }
 
 
-input[type=number]{
+input[type=text]{
     border-radius: 0;
     outline:none;
     background:none;
@@ -30,15 +30,19 @@ input[type=number]{
     width:100px;
 }
 
-input[type=number]:active,
-input[type=number]:empty,
-input[type=number]:invalid,
-input[type=number]:valid,
-input[type=number]:focus,
-input[type=number]::placeholder{
+input[type=text]:active,
+input[type=text]:empty,
+input[type=text]:invalid,
+input[type=text]:valid,
+input[type=text]:focus,
+input[type=text]::placeholder{
     outline:none;
     background:none;
     color:white;
+}
+
+#valor {
+    width:80px;
 }
 
 /* Hide Number Field Tickers in Chrome, Safari, Edge, Opera */
@@ -49,7 +53,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Hide Number Field Tickers in Firefox */
-input[type=number] {
+input[type=text] {
   -moz-appearance: textfield;
 }
 
