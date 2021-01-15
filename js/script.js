@@ -5,18 +5,6 @@ function check() {
 	var valorVal = parseInt(document.calc1.valor.value, 10);
 	var multiplier = parseInt(document.calc1.multiplier.value, 10);
 
-	var error = document.getElementById("error");
-	var results = document.getElementById("results");
-	var difference = document.getElementById("difference");
-	var percentage = document.getElementById("percentage");
-	var percentage2 = document.getElementById("progress-bar-valor-percent");
-	var resultHigh = document.getElementById("result-high");
-	var resultLow = document.getElementById("result-low");
-	var resultAvg = document.getElementById("result-average");
-	var legendLow = document.getElementById("legend-low");
-	var legendHigh = document.getElementById("legend-high");
-	var legendAvg = document.getElementById("legend-average");
-
 	// Check for errors
 
 	if (
@@ -24,35 +12,46 @@ function check() {
 		typeof valorVal !== "number" ||
 		Number.isNaN(valorVal)
 	) {
-		error.style.display = "";
-		results.style.display = "none";
+		document.getElementById("error").style.display = "";
+		document.getElementById("results").style.display = "none";
 
 		console.log("oh fuqq something broke");
 	} else {
-		difference.innerHTML = Math.round(valorMax - valorVal) + " valor";
-		percentage.innerHTML = Math.round(valorVal / 20) + "%";
-		percentage2.style.width = Math.round(valorVal / 20) + "%";
-		resultHigh.innerHTML = Math.round((valorMax - valorVal) / multiplier);
-		resultLow.innerHTML = Math.round((valorMax - valorVal) / multiplier / 4);
-		resultAvg.innerHTML = Math.round(
+		document.getElementById("difference").innerHTML =
+			Math.round(valorMax - valorVal) + " valor";
+		document.getElementById("percentage").innerHTML =
+			Math.round(valorVal / 20) + "%";
+		document.getElementById("progress-bar-valor-percent").style.width =
+			Math.round(valorVal / 20) + "%";
+		document.getElementById("result-high").innerHTML = Math.round(
+			(valorMax - valorVal) / multiplier
+		);
+		document.getElementById("result-low").innerHTML = Math.round(
+			(valorMax - valorVal) / multiplier / 4
+		);
+		document.getElementById("result-average").innerHTML = Math.round(
 			Math.round(
 				Math.round((valorMax - valorVal) / multiplier) +
 					Math.round((valorMax - valorVal) / multiplier / 4)
 			) / 2
 		);
 
-		legendLow.innerHTML = Math.round((valorLegend - valorVal) / multiplier / 4);
-		legendHigh.innerHTML = Math.round((valorLegend - valorVal) / multiplier);
+		document.getElementById("legend-low").innerHTML = Math.round(
+			(valorLegend - valorVal) / multiplier / 4
+		);
+		document.getElementById("legend-high").innerHTML = Math.round(
+			(valorLegend - valorVal) / multiplier
+		);
 
-		legendAvg.innerHTML = Math.round(
+		document.getElementById("legend-average").innerHTML = Math.round(
 			Math.round(
 				Math.round((valorLegend - valorVal) / multiplier) +
 					Math.round((valorLegend - valorVal) / multiplier / 4)
 			) / 2
 		);
 
-		results.style.display = "";
-		error.style.display = "none";
+		document.getElementById("results").style.display = "";
+		document.getElementById("error").style.display = "none";
 
 		console.log("all good");
 	}
