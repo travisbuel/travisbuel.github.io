@@ -44,28 +44,6 @@
 						<label for="halp">
 							<i class="ri-question-fill"></i>
 						</label>
-
-						<div id="halptext" style="display: none">
-							<h2>How's this work?</h2>
-							<p>
-								Type your current Valor in the field, select any active Valor
-								boosts, and Submit. You'll get multiple stats about your
-								progress toward your next Valor reset, including an estimation
-								for how many matches you will need as well as raw min/max
-								matches.
-								<br /><br />
-								Keep in mind, Crucible bounties contribute Valor to your rank as
-								well, so depending on how often you're completing those and
-								re-upping, this will take less time -- but I have no way to
-								calculate that.
-								<br /><br />
-								As far as Double and Triple Valor goes... Currently, Double
-								Valor is only active during Iron Banner weeks Tuesday through
-								Thursday, and Triple Valor is active Friday until reset. Bungie
-								occasionally decides to do off-IB extra-Valor weekends, but
-								they're random.
-							</p>
-						</div>
 					</div>
 
 					<input
@@ -89,12 +67,7 @@
 							<option name="Triple Valor" value="30">Triple Valor</option>
 						</select>
 					</div>
-					<button
-						type="submit"
-						id="submit"
-						class="submit"
-						onclick="check(); return false"
-					>
+					<button id="submit" class="submit" onclick="check(); return false">
 						<i class="ri-arrow-right-fill"></i>
 					</button>
 				</form>
@@ -114,6 +87,30 @@
 					</li>
 					<li>Also, no commas.</li>
 				</ol>
+			</div>
+			<div id="halptext" style="display: none">
+				<div class="halp-inner">
+					<h2>How's this work?</h2>
+					<p>
+						Type your current Valor in the field, select any active Valor
+						boosts, and Submit. You'll get multiple stats about your progress
+						toward your next Valor reset, including an estimation for how many
+						matches you will need as well as raw min/max matches.
+						<br /><br />
+						Keep in mind, Crucible bounties contribute Valor to your rank as
+						well, so depending on how often you're completing those and
+						re-upping, this will take less time -- but I have no way to
+						calculate that.
+						<br /><br />
+						As far as Double and Triple Valor goes... Currently, Double Valor is
+						only active during Iron Banner weeks Tuesday through Thursday, and
+						Triple Valor is active Friday until reset. Bungie occasionally
+						decides to do off-IB extra-Valor weekends, but they're random.
+					</p>
+					<button id="halp-close" class="halp-close" onclick="halpClose()">
+						Got it.
+					</button>
+				</div>
 			</div>
 
 			<div class="item results" id="results" style="display: none">

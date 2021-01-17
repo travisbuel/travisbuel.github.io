@@ -21,22 +21,19 @@
 }
 
 html {
-	height:100%;
-	margin:0;
-	padding:0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 	/*Disallow selecting text on page */
-	-webkit-touch-callout:none; /* iOS Safari */
-	-webkit-user-select:none;   /* Chrome/Safari/Opera */
-	-khtml-user-select:none;    /* Konqueror */
-	-moz-user-select:none;      /* Firefox */
-	-ms-user-select:none;       /* Internet Explorer/Edge */
-	user-select:none;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
 	/*Also prevent cursor from changing except where expressly stated*/
-	cursor:default;          
+	cursor: default;
 }
-
-
-
 
 body {
 	font-family: "Destiny", Helvetica, Arial, sans-serif;
@@ -48,9 +45,9 @@ body {
 	background-size: contain;
 	color: var(--primary-color);
 	display: flex;
-	flex-direction:column;
-	align-items:space-between;
-	justify-items:center;
+	flex-direction: column;
+	align-items: space-between;
+	justify-items: center;
 }
 
 h1 {
@@ -60,7 +57,7 @@ h1 {
 	display: block;
 	line-height: 0.9em;
 	color: var(--highlight);
-	margin-bottom: .7em ;
+	margin-bottom: 0.7em;
 }
 
 h2 {
@@ -71,8 +68,8 @@ h2 {
 	letter-spacing: 0.3rem;
 	display: block;
 	color: var(--highlight);
-	margin-top: 1em ;
-	margin-bottom: 1em ;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 h3 {
@@ -83,70 +80,41 @@ h3 {
 	letter-spacing: 0.1rem;
 	display: block;
 	color: var(--highlight);
-	margin-top: 1em ;
-	margin-bottom: 1em ;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 p {
 	line-height: 1.3em;
-	margin-top: 1em ;
-	margin-bottom: 1em ;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 em {
 	font-style: italic;
 	font-weight: bolder;
-	color: var(--highlight);f
+	color: var(--highlight);
 }
 
 .container {
-	display: grid;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
 	color: var(--primary-color);
-	text-align:left;
-	padding:0px 5% 60px 5%;
-	gap:2%;
-}
-
-@media (min-width: 100px) {
-	.container {
-		grid-template:
-			"header" 400px
-			"info" 100px
-			"results" auto
-			/ 100%;
-			text-align:center;
-	}
-	p {
-		text-align:center;
-	}
-	
+	text-align: center;
+	padding: 0px 5% 60px 5%;
 }
 
 @media (min-width: 800px) {
 	.container {
-		grid-template:
-			"header header" 400px
-			"info results" 1fr
-			/ 360px auto;
-			text-align:left;
+		padding: 0px 10% 60px 10%;
 	}
-	p {
-		text-align:left;
-	}
-
-	
 }
 
 @media (min-width: 1100px) {
 	.container {
-		grid-template:
-			"header header" 400px
-			"info results" 1fr
-			/ 360px auto;
-			text-align:left;
-	}
-	p {
-		text-align:left;
+		padding: 0px 20% 60px 20%;
 	}
 }
 
@@ -155,12 +123,12 @@ em {
 }
 
 .header {
-	grid-area: header;
-	display:flex;
-	flex-direction:column;
-	justify-content:flex-end;f
+	display: flex;
+	height: 50vh;
+	flex-direction: column;
+	justify-content: flex-end;
 	border-bottom: 2px solid var(--primary-color);
-	padding-bottom:40px;
+	padding-bottom: 40px;
 }
 
 .main-title-1 {
@@ -172,14 +140,14 @@ em {
 	letter-spacing: 0.5rem;
 	color: var(--title1);
 	text-align: center;
-	margin-bottom: .5em ;	
+	margin-bottom: 0.5em;
 }
 
 .main-title-2 {
 	font-weight: bold;
 	font-style: normal;
 	font-size: 3em;
-	line-height:.9em;
+	line-height: 0.9em;
 	text-transform: uppercase;
 	color: var(--title2);
 	text-align: center;
@@ -212,18 +180,21 @@ em {
 	overflow: hidden;
 }
 
-.low, .high {
+.low,
+.high {
 	align-self: center;
-	font-size: 1.5em;
+	font-size: 1.4em;
 	padding: 20px;
 }
 
 .low {
-	justify-self:flex-start;
+	justify-self: flex-start;
+	text-align: left;
 }
 
 .high {
-	justify-self:flex-end;
+	justify-self: flex-end;
+	text-align: right;
 }
 
 .avg {
@@ -235,7 +206,6 @@ em {
 	text-align: center;
 	line-height: 1em;
 }
-
 
 .valor-bar-section {
 	width: 100%;
@@ -255,16 +225,13 @@ em {
 }
 
 .footer {
-	grid-column:1/-1;
-	grid-row:5/-1;
-	justify-self:space-between;
+	justify-self: flex-end;
 	border-top: 1px dotted var(--primary-color);
 	color: var(--primary-color);
 	display: flex;
 	flex-direction: row nowrap;
 	justify-content: space-between;
-	align-content:flex-end;
-	padding:20px;
+	padding: 20px;
 }
 
 #error {
@@ -282,7 +249,7 @@ em {
 }
 
 #error h3 {
-    color:white;
+	color: white;
 }
 
 #error h1 {

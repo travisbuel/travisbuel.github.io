@@ -84,9 +84,20 @@ toggleSwitch.addEventListener("change", switchTheme, false);
 
 function halpToggle() {
 	var halpBtn = document.getElementById("halp");
+	var halpTxt = document.getElementById("halptext");
 	if (halpBtn.checked == true) {
-		document.getElementById("halptext").style.display = "";
+		halpTxt.style.display = "";
 	} else {
-		document.getElementById("halptext").style.display = "none";
+		halpTxt.style.display = "none";
+	}
+}
+
+function halpClose() {
+	var closeBtn = document.getElementById("halp-close");
+	var halpBtn = document.getElementById("halp");
+	var halpTxt = document.getElementById("halptext");
+	if (halpBtn.checked == true) {
+		halpBtn.checked = false;
+		halpTxt.style.display = "none";
 	}
 }
