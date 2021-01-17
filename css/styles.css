@@ -103,7 +103,7 @@ em {
 	display: grid;
 	color: var(--primary-color);
 	text-align:left;
-	padding:0px 5% 100px 5%;
+	padding:0px 5% 60px 5%;
 	gap:2%;
 }
 
@@ -212,15 +212,22 @@ em {
 	overflow: hidden;
 }
 
-.low-high {
-	justify-self: center;
+.low, .high {
 	align-self: center;
 	font-size: 1.5em;
 	padding: 20px;
 }
 
+.low {
+	justify-self:flex-start;
+}
+
+.high {
+	justify-self:flex-end;
+}
+
 .avg {
-	justify-self: center;
+	justify-self: center nowrap;
 	align-self: center;
 	font-size: 2.5em;
 	font-weight: bolder;
@@ -228,6 +235,7 @@ em {
 	text-align: center;
 	line-height: 1em;
 }
+
 
 .valor-bar-section {
 	width: 100%;
