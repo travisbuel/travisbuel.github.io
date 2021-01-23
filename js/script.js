@@ -106,7 +106,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Max Valor (" +
 				valorMax +
-				")</em><br>which you will reach in an average of<br><em>" +
+				")</em><br>which you will reach in around<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorMax - valorVal) / multiplier) +
