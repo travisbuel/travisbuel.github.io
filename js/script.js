@@ -1,14 +1,18 @@
 function check() {
 	// Set variables
-	const valorMax = 2000;
+	const valorBrave = 50;
+	const valorHeroic = 350;
+	const valorFabled = 700;
+	const valorMythic = 1150;
 	const valorLegend = 1800;
+	const valorMax = 2000;
 	var valorVal = parseInt(document.calc1.valor.value, 10);
 	var multiplier = parseInt(document.calc1.multiplier.value, 10);
 
 	// Check for errors
 
 	if (
-		valorVal >= 2000 ||
+		valorVal >= valorMax ||
 		typeof valorVal !== "number" ||
 		Number.isNaN(valorVal)
 	) {
@@ -36,23 +40,183 @@ function check() {
 			) / 2
 		);
 
-		document.getElementById("legend-low").innerHTML = Math.round(
-			(valorLegend - valorVal) / multiplier / 4
-		);
-		document.getElementById("legend-high").innerHTML = Math.round(
-			(valorLegend - valorVal) / multiplier
-		);
-
-		document.getElementById("legend-average").innerHTML = Math.round(
-			Math.round(
-				Math.round((valorLegend - valorVal) / multiplier) +
-					Math.round((valorLegend - valorVal) / multiplier / 4)
-			) / 2
-		);
-
 		document.getElementById("results").style.display = "";
 		document.getElementById("error").style.display = "none";
 
+		if (valorVal == valorMax) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You're ready for a reset!";
+		} else if (valorMax > valorVal && valorVal >= valorLegend) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(0)  opacity(50%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Max Valor (" +
+				valorMax +
+				")</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorMax - valorVal) / multiplier) +
+							Math.round((valorMax - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		} else if (valorLegend > valorVal && valorVal >= valorMythic) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Legend (" +
+				valorLegend +
+				" Valor)</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorLegend - valorVal) / multiplier) +
+							Math.round((valorLegend - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		} else if (valorMythic > valorVal && valorVal >= valorFabled) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Mythic (" +
+				valorMythic +
+				" Valor)</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorMythic - valorVal) / multiplier) +
+							Math.round((valorMythic - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		} else if (valorFabled > valorVal && valorVal >= valorHeroic) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Fabled (" +
+				valorFabled +
+				" Valor)</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorFabled - valorVal) / multiplier) +
+							Math.round((valorFabled - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		} else if (valorHeroic > valorVal && valorVal >= valorBrave) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(0) opacity(50%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Heroic (" +
+				valorHeroic +
+				" Valor)</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorHeroic - valorVal) / multiplier) +
+							Math.round((valorHeroic - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		} else if (valorBrave > valorVal && valorVal >= 0) {
+			document.getElementById("reward-brave").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-heroic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-fabled").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-mythic").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-legend").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-max").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-reset").style.filter =
+				"saturate(1) opacity(100%)";
+			document.getElementById("reward-text").innerHTML =
+				"You'll get your next reward at <em>Brave (" +
+				valorBrave +
+				" Valor)</em>, which you will reach in an average of <em>" +
+				Math.round(
+					Math.round(
+						Math.round((valorBrave - valorVal) / multiplier) +
+							Math.round((valorBrave - valorVal) / multiplier / 4)
+					) / 2
+				) +
+				" matches.</em>";
+		}
 		console.log("all good");
 	}
 }
