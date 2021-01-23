@@ -87,7 +87,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Max Valor (" +
 				valorMax +
-				")</em><br>which you will reach in<br><em>your next match</em>!";
+				")</em><br>which you will reach in<br><em>your next match!</em>";
 		} else if (1981 > valorVal && valorVal >= valorLegend) {
 			document.getElementById("reward-brave").style.filter =
 				"saturate(0) opacity(50%)";
@@ -265,9 +265,11 @@ if (currentTheme) {
 function switchTheme(e) {
 	if (e.target.checked) {
 		document.documentElement.setAttribute("data-theme", "dark");
+
 		localStorage.setItem("theme", "dark");
 	} else {
 		document.documentElement.setAttribute("data-theme", "light");
+
 		localStorage.setItem("theme", "light");
 	}
 }
