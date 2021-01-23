@@ -65,8 +65,7 @@ h1 {
 	display: block;
 	line-height: 0.9em;
 	color: var(--highlight);
-	width: 120%;
-	margin-left: -10%;
+	width: 100%;
 	border-bottom: 1px dotted var(--highlight);
 	padding: 1em 0 0.4em 0;
 	margin-bottom: 0.7em;
