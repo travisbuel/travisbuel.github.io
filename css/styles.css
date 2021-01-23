@@ -269,8 +269,8 @@ em {
 }
 
 .reward {
-	max-width: 60px;
-	max-height: 60px;
+	max-width: 50px;
+	max-height: 50px;
 	margin: 0.1em;
 	padding: 0;
 	position: relative;
