@@ -66,8 +66,6 @@ h1 {
 	width: 100%;
 	border-bottom: 1px dotted var(--highlight);
 	padding: 1em 0 0.4em 0;
-	margin-bottom: 0.7em;
-	margin-top: 1em;
 }
 
 h2 {
@@ -191,7 +189,6 @@ a:active {
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
-	margin: 10px 0px 10px 0px;
 	background: linear-gradient(
 		90deg,
 		var(--low) 0%,
@@ -232,7 +229,6 @@ a:active {
 
 .valor-bar-section {
 	width: 100%;
-	margin: 20px 0px 20px 0px;
 }
 
 .progress-bar-valor {
@@ -243,7 +239,7 @@ a:active {
 }
 
 .progress-bar-valor-percent {
-	background-color: var(--primary-color);
+	background-color: var(--highlight);
 	height: 8px;
 }
 
@@ -325,6 +321,7 @@ a:active {
 
 .footer {
 	border-top: 1px dotted var(--bg-color2);
+	background-color: var(--shadow);
 	color: var(--primary-color);
 	display: flex;
 	flex-direction: row nowrap;
@@ -368,7 +365,7 @@ a:active {
 }
 
 .slider:before {
-	background-color: var(--bg-color);
+	background-color: var(--shadow);
 	bottom: 2px;
 	content: "";
 	height: 16px;
