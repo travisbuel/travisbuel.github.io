@@ -106,7 +106,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Max Valor (" +
 				valorMax +
-				")</em><br>which you will reach in around<br><em>" +
+				")</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorMax - valorVal) / multiplier) +
@@ -132,7 +132,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Legend (" +
 				valorLegend +
-				" Valor)</em><br>which you will reach in an average of<br><em>" +
+				" Valor)</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorLegend - valorVal) / multiplier) +
@@ -158,7 +158,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Mythic (" +
 				valorMythic +
-				" Valor)</em><br>which you will reach in an average of<br><em>" +
+				" Valor)</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorMythic - valorVal) / multiplier) +
@@ -184,7 +184,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Fabled (" +
 				valorFabled +
-				" Valor)</em><br>which you will reach in an average of<br><em>" +
+				" Valor)</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorFabled - valorVal) / multiplier) +
@@ -210,7 +210,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Heroic (" +
 				valorHeroic +
-				" Valor)</em><br>which you will reach in an average of<br><em>" +
+				" Valor)</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorHeroic - valorVal) / multiplier) +
@@ -236,7 +236,7 @@ function check() {
 			document.getElementById("reward-text").innerHTML =
 				"You'll get your next reward at<br><em>Brave (" +
 				valorBrave +
-				" Valor)</em><br>which you will reach in an average of<br><em>" +
+				" Valor)</em><br>which you will reach in about<br><em>" +
 				Math.round(
 					Math.round(
 						Math.round((valorBrave - valorVal) / multiplier) +

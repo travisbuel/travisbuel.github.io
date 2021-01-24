@@ -19,7 +19,7 @@
 		/>
 		<title>ValorCalc</title>
 	</head>
-	<body>
+	<body class="animate">
 		<div class="main-theme container">
 			<div class="item header">
 				<span class="main-title-1">Destiny 2</span>
@@ -55,10 +55,10 @@
 					<div class="select">
 						<select id="multiplier" name="multiplier">
 							<option name="No Valor Multiplier" value="10" selected>
-								No Multiplier
+								1X Valor
 							</option>
-							<option name="Double Valor" value="20">Double Valor</option>
-							<option name="Triple Valor" value="30">Triple Valor</option>
+							<option name="Double Valor" value="20">2X Valor</option>
+							<option name="Triple Valor" value="30">3X Valor</option>
 						</select>
 					</div>
 					<button id="submit" class="submit" onclick="check(); return false">
@@ -177,18 +177,32 @@
 			</div>
 		</div>
 		<footer class="footer">
-			<div class="theme-switch-wrapper">
-				<label class="theme-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-				<span>&nbsp;&nbsp;Toggle Theme</span>
+			<div class="footer-buttons">
+				<div class="theme-switch-wrapper">
+					<label class="theme-switch" for="checkbox">
+						<input type="checkbox" id="checkbox" />
+						<div class="slider round"></div>
+					</label>
+					<span>&nbsp;&nbsp;Swap Theme</span>
+				</div>
+				<span class="footer-btn email">
+					<a href="mailto:travisbuel@gmail.com?subject=ValorCalc"
+						><i class="ri-mail-line"></i><span>Email</span></a
+					>
+				</span>
+				<span class="footer-btn support">
+					<a href="https://cash.me/$travisbuel"
+						><i class="ri-money-dollar-circle-fill"></i><span>Support</span></a
+					>
+				</span>
 			</div>
-
-			<div class="footer-btn">
-				<a href="https://cash.me/$travisbuel"
-					><i class="ri-money-dollar-circle-fill"></i
-				></a>
+			<div class="footer-info">
+				<p>
+					This site* is licensed under a Creative Commons Attribution 3.0
+					License. Improve upon, use, and abuse it -- just give ma a shout-out
+					when you do. *Destiny is a registered trademark of Bungie. Some
+					content and images are the property of Bungie.
+				</p>
 			</div>
 		</footer>
 		<script type="text/JavaScript" src="js/script.js"></script>
