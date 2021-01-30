@@ -67,21 +67,6 @@
 				</form>
 			</div>
 
-			<div class="item results" id="error" style="display: none">
-				<h1><strong>Breh.</strong></h1>
-				<h3>
-					this-site.exe has encountered a problem because you fucked something
-					up.
-				</h3>
-				<ol>
-					<li>Do you even play this game?</li>
-					<li>
-						You gotta put a number in the number thingy, anything between 0 and
-						1999.
-					</li>
-					<li>Also, no commas.</li>
-				</ol>
-			</div>
 			<div id="halptext" style="display: none">
 				<div class="halp-inner">
 					<h2>How's this work?</h2>
@@ -122,17 +107,13 @@
 					<div class="valor-progress" id="valor-progress"></div>
 				</div>
 
-				<p>To hit a Valor reset, you still need something like...</p>
+				<p>To hit a Valor reset, you <span id="results-pre"></span></p>
 				<div class="results-wrapper">
 					<span class="low"><span id="result-low"></span></span>
 					<span class="avg"><span id="result-average"></span></span>
 					<span class="high"><span id="result-high"></span></span>
 				</div>
-				<p>
-					On the low end, this assumes you win every single match to maintain a
-					constant 5-win streak. On the high end, you lose literally every
-					single match you play. The average assumes a 50% W/L ratio.
-				</p>
+				<p id="results-description"></p>
 				<h1>The Rewards</h1>
 				<p>
 					Bungie's new reward system grants various upgrade materials as you

@@ -8,7 +8,8 @@ function check() {
 	const valorMax = 2000;
 	var valorVal = parseInt(document.calc1.valor.value, 10);
 	var multiplier = parseInt(document.calc1.multiplier.value, 10);
-
+	var resultsDescription =
+		"On the low end, this assumes you win nearly every single match to maintain a constant 5-win streak. On the high end, you lose literally every single match you play. The average... is complicated. Because of win streaks, the math goes out the window. This number assumes you start without a streak, win the first match, lose the next, and repeat that loop. If you manage to get a real win streak going and can maintain it, this 'average' will obviously be lower.";
 	// Check for errors
 
 	if (
@@ -16,9 +17,10 @@ function check() {
 		typeof valorVal !== "number" ||
 		Number.isNaN(valorVal)
 	) {
-		document.getElementById("error").style.display = "";
 		document.getElementById("results").style.display = "none";
-
+		//reset Valor field on submit but leave multiplier
+		document.getElementById("valor").value = "";
+		alert("Input your Valor. Nnumbers only, no commas, 0-1999.");
 		console.log("oh fuqq something broke");
 	} else {
 		document.getElementById("difference").innerHTML =
@@ -28,7 +30,9 @@ function check() {
 			document.getElementById("progress-bar-valor-percent").style.width = "99%";
 			document.getElementById("result-high").innerHTML = "";
 			document.getElementById("result-low").innerHTML = "";
+			document.getElementById("results-pre").innerHTML = "just need...";
 			document.getElementById("result-average").innerHTML = "ONE MORE MATCH";
+			document.getElementById("results-description").innerHTML = "Leggo.";
 		} else {
 			document.getElementById("percentage").innerHTML =
 				Math.round(valorVal / 20) + "%";
@@ -47,10 +51,12 @@ function check() {
 							Math.round((valorMax - valorVal) / multiplier / 4)
 					) / 2
 				) + " MATCHES";
+			document.getElementById("results-pre").innerHTML =
+				"still need something like...";
+			document.getElementById(
+				"results-description"
+			).innerHTML = resultsDescription;
 		}
-
-		document.getElementById("results").style.display = "";
-		document.getElementById("error").style.display = "none";
 
 		if (valorVal == valorMax) {
 			document.getElementById("reward-brave").style.filter =
@@ -246,6 +252,10 @@ function check() {
 				" Matches</em>";
 		}
 		console.log("all good");
+		document.getElementById("results").style.display = "";
+
+		//reset Valor field on submit but leave multiplier
+		document.getElementById("valor").value = "";
 	}
 }
 
