@@ -20,7 +20,7 @@ function check() {
 		document.getElementById("results").style.display = "none";
 		//reset Valor field on submit but leave multiplier
 		document.getElementById("valor").value = "";
-		alert("Input your Valor. Nnumbers only, no commas, 0-1999.");
+		alert("Input your Valor, 4head.\n\n• Numbers only\n• No commas\n• 0-1999");
 		console.log("oh fuqq something broke");
 	} else {
 		document.getElementById("difference").innerHTML =
